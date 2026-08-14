@@ -80,3 +80,9 @@ resource "azurerm_linux_web_app" "app" {
     value = "Server=tcp:${azurerm_mssql_server.sql.fully_qualified_domain_name},1433;Database=${azurerm_mssql_database.db.name};User Id=${var.sql_admin_login};Password=${var.sql_admin_password};MultipleActiveResultSets=true;Encrypt=true;"
   }
 }
+
+resource "azurerm_app_service_source_control" "github" {
+  app_id   = azurerm_linux_web_app.app.id
+  repo_url = "https://github.com/HristiyanIliev06/SoftUniBazar.git"
+  branch   = "main"
+}
