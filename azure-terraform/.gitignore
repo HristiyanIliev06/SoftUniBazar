@@ -8,6 +8,7 @@ crash.log
 crash.*.log
 
 # Terraform variable files that may contain secrets
+*.tf
 *.tfvars
 *.tfvars.json
 
